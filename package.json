@@ -1,0 +1,43 @@
+{
+  "name": "og-generator",
+  "description": "Generate an OG image from SVG and Markdown front matter",
+  "version": "0.0.1",
+  "author": "jh3y @jh3y",
+  "bin": {
+    "og-generator": "./bin/run"
+  },
+  "bugs": "https://github.com/jh3y/personal-site/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "jsdom": "^16.4.0",
+    "puppeteer": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/jh3y/personal-site",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "bin": "og-generator"
+  },
+  "repository": "jh3y/personal-site",
+  "scripts": {
+    "prepack": "oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md",
+    "generate": "./bin/run"
+  }
+}
