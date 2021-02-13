@@ -1,17 +1,14 @@
 const { Command, flags } = require("@oclif/command");
-const fs = require("fs");
 const generateOgImage = require("./generate.js");
-
-const TEMPLATE_PATH = `${process.cwd()}/templates/og.svg`;
 
 // Used for generating single OG Images with specific titles, images, and colors
 class OgGeneratorCommand extends Command {
   async run() {
     const {
-      flags: { name, hue, image, title, template, type, output, override },
+      flags: { hue, image, title, template, type, output, override },
     } = this.parse(OgGeneratorCommand);
     // Pass through to an actual module
-    await generateOgImage(name, title, template, type, image, hue, output, override);
+    await generateOgImage(title, template, type, image, hue, output, override);
   }
 }
 
@@ -25,7 +22,6 @@ OgGeneratorCommand.flags = {
   version: flags.version({ char: "v" }),
   // add --help flag to show CLI version
   help: flags.help({ char: "h" }),
-  name: flags.string({ char: "n", description: "the file name to use" }),
   hue: flags.string({ char: "c", description: "color hue for banner" }),
   image: flags.string({ char: "i", description: "image to use" }),
   title: flags.string({ char: "t", description: "title for card" }),

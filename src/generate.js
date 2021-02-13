@@ -9,7 +9,6 @@ const TYPES = ["OG", "TWITTER_BANNER", "YOUTUBE_THUMBNAIL"];
 
 /**
  * Generate an asset image in png form using the provided template/type
- * @param {string} slug - File name to be used.
  * @param {string} title - Text to show on the asset. Example, "Amazing Guide to Making Things".
  * @param {string} template - Path to template file to be used.
  * @param {string} type - If no template is provided, provide a type to be used with "Out of the box" ones.
@@ -18,7 +17,6 @@ const TYPES = ["OG", "TWITTER_BANNER", "YOUTUBE_THUMBNAIL"];
  * @param {boolean} override - Override existing asset.
  */
 const generateOgImage = async (
-  name = "og-asset",
   title = "Amazing Piece of Content",
   template,
   type = "OG",
@@ -27,18 +25,16 @@ const generateOgImage = async (
   output = "./og-asset.png",
   override = false
 ) => {
-  // Load the markdown file
-  // TODO:: Change Slug To Override
-  // TODO:: Accept full color or extract that part completely to a callback on Document
-  // TODO:: Try and extract this so it can be installed and used elsewhere by other things
-  // Check if the asset already exists. If it does, don't bother making a new one.
+  // Check if the asset already exists. If it does, don't make a new one.
   if (fs.existsSync(output) && !override) return;
-  const TMP_IMAGE_PATH = `${os.tmpdir()}/og-generator-output.png`
-  const TMP_SVG_PATH = `${os.tmpdir()}/og-generator-output.svg`
+  const TMP_IMAGE_PATH = `${os.tmpdir()}/og-generator-output.png`;
+  const TMP_SVG_PATH = `${os.tmpdir()}/og-generator-output.svg`;
   /**
    * If there's an image, grab it and process it with Sharp.
    * We're going to resize it and flip it as if it's reflected.
    */
+  if (image && !fs.existsSync(image))
+    throw Error("Image not found for reflection");
   if (image) {
     const IMAGE_PATH = `${image}`;
     /**
@@ -62,7 +58,6 @@ const generateOgImage = async (
 
   // Grab the template file either from given templates or provided template file.
   const TEMPLATE_FILE = await fs.promises.readFile(TEMPLATE_PATH, "utf-8");
-
   /**
    * Use JSDOM to load up the provided template.
    * This is where we make manipulations in the DOM before screenshotting.
@@ -85,7 +80,6 @@ const generateOgImage = async (
   // Grab the width and height but parse them as Integer.
   const WIDTH = parseInt(SVG.getAttribute("width"), 10);
   const HEIGHT = parseInt(SVG.getAttribute("height"), 10);
-  // // Set the fill color where we need to
   /**
    * My templates are "bespoke".
    * I'm relying on there to be elements with a [data-hsl] attribute.
@@ -94,27 +88,21 @@ const generateOgImage = async (
   document
     .querySelectorAll("[data-hsl]")
     .forEach((el) => el.setAttribute("fill", COLOR));
-  // // Grab the header image and set the correct path for the cropped image.
-  // // Only do this because we might want to debug our template in the browser.
   /**
    * I'm also relying on there being a "Reflection Image" placeholder.
    * This is where we point the SVG image reflection at our compressed image.
    */
   document
-    .querySelector("#heroImage")
+    .querySelector("#reflectionImage")
     .setAttribute("xlink:href", TMP_IMAGE_PATH);
   // If we don't have a reflection to show, we can remove the element.
-  if (!image) document.querySelector("#heroImage").remove();
+  if (!image) document.querySelector("#reflectionImage").remove();
   /**
    * Set the OG card title. Again, this is based on a certain class/attribute.
    */
-  document.querySelector(".og__title").textContent = title;
+  document.querySelector("[data-og-title]").textContent = title;
   // Write this SVG to the tmp folder
-  fs.writeFileSync(
-    TMP_SVG_PATH,
-    SVG.outerHTML,
-    "utf-8"
-  );
+  fs.writeFileSync(TMP_SVG_PATH, SVG.outerHTML, "utf-8");
   /**
    * This is where we grab a "snap" of that PNG.
    * Using Puppeteer, we can take a screenshot of the SVG using
@@ -133,8 +121,10 @@ const generateOgImage = async (
   // Close the instance
   await page.close();
   await browser.close();
-  // TODO:: Remove the temp files
-  console.info(`OG Image generated for ${name}`);
+  // Remove the temporary files
+  await fs.promises.unlink(TMP_IMAGE_PATH);
+  await fs.promises.unlink(TMP_SVG_PATH);
+  console.info(`OG Image generated at ${output}`);
 };
 
 module.exports = generateOgImage;

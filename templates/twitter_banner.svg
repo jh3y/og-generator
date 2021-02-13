@@ -1,4 +1,4 @@
-<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" class="og" viewBox="0 0 338.667 190.5">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" class="og" viewBox="0 0 396.875 132.291" width="1500" height="500">
   <defs>
     <clipPath id="a" clipPathUnits="userSpaceOnUse">
       <path fill="#333" stroke-linecap="square" stroke-linejoin="round" stroke-width="12.588" d="M57.462 857.893c-13.528.224-33.267.946-38.194 16.43-4.393 20.448-4.185 43.932 7.692 61.187 9.919 14.41 31.334 11.582 47.282 11.023 25.345-.89 47.122-20.63 53.855-44.776 2.587-10.398 5.59-18.679.933-25.992-7.974-12.526-26.954-15.795-41.01-17.39-10.082-.41-20.378-.594-30.558-.482z"/>
@@ -11,7 +11,9 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         height: 100%;
+        text-align: center;
       }
 
       .og__title {
@@ -21,27 +23,41 @@
         line-height: 1.1;
       }
 
+      .og__icons {
+        display: flex;
+      }
+
+      .og__icons svg {
+        fill: white;
+        height: 14px;
+      }
+
+      .og__icons > svg + svg {
+        margin-left: 4px;
+      }
+
       .og__tagline {
         margin: 0;
         font-size: 14px;
         font-weight: 200;
         margin: 5px 0;
+        width: 100%;
       }
     </style>
   </defs>
-  <path fill="#343434" d="M0 0h338.667v190.5H0z"/>
-  <path fill="orange" d="M0 0h338.667v8.543H0zm0 181.957h338.667v8.543H0z" data-hsl="true"/>
-  <foreignObject width="240" height="153" x="10" y="12">
+  <path fill="#343434" d="M0 0h396.875v132.292H0z"/>
+  <path fill="orange" d="M0 0h396.875v5.933H0zm0 126.359h396.875v5.933H0z" data-hsl="true"/>
+  <foreignObject width="260" height="100" x="68.4375" y="16.1455">
     <xhtml:div class="og__details">
-      <xhtml:h1 class="og__title">
-        Make Awesome Things on YouTube with This Video
+      <xhtml:h1 data-og-title="true" class="og__title" style="margin:0;line-height:1.1" font-size="18" font-weight="700">
+        Making Awesome Things for Awesome People!
       </xhtml:h1>
-      <xhtml:h2 class="og__tagline">
+      <xhtml:h2 class="og__tagline" style="margin:0" font-size="14" font-weight="200">
         jhey.dev
       </xhtml:h2>
     </xhtml:div>
   </foreignObject>
-  <g transform="translate(260.924 -391.748) scale(.53892)">
+  <g transform="matrix(.3752 0 0 .3752 342.751 -272.904)">
     <path fill="#803300" d="M141.776 787.416c-71.486 0-122 33.123-122 115.264 0 82.141 49.766 142.533 122.62 142.533.623 0 1.239-.015 1.859-.023V787.434c-.825-.009-1.65-.018-2.479-.018z"/>
     <path fill="#e9c6af" d="M143.015 944.202c-46.549 0-81.805 17.925-81.805 44.622s34.637 52.058 81.185 52.058c.622 0 1.241-.01 1.86-.015V944.21c-.413-.003-.826-.008-1.24-.008z"/>
     <path d="M144.255 936.77c-15.129.102-41.832 6.543-41.832 16.729 0 9.993 26.528 31.641 41.832 32.794z"/>
@@ -52,7 +68,7 @@
     <circle cx="73.503" cy="902.965" r="15" fill="#faa" fill-opacity=".577"/>
     <path fill="none" stroke="#e9afaf" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M72.645 862.68a28.525 28.525 0 01-9.094 20.883 28.525 28.525 0 01-21.482 7.569"/>
     <path d="M43.447 850.018c-7.78.038-16.201.582-27.275 2.87L-3.029 856.6l3.094 20.167c2.808.394 6.684 1.362 8.52 3.82 4.73 6.332 1.61 12.453 2.686 23.636 3.58 37.256 15.986 45.053 35.197 47.294 10.06 1.173 30.597 3.06 44.63-1.92 12.68-4.503 24.438-13.235 32.397-24.086 8.414-11.47 9.319-24.455 14.541-34.5 1.698-3.265 4.01-4.71 6.219-4.78v-21.814c-10.426-.346-20.693-6.685-30.895-8.858-10.905-2.323-19.88-4.166-33.142-4.527-6.428-.175-12.127-.802-17.616-.768-5.548.034-10.617-.178-15.854-.234-1.09-.012-2.19-.017-3.301-.012z"/>
-    <image id="heroImage" width="147.284" height="147.284" x=".409" y="828.852" clip-path="url(#a)" image-rendering="optimizeQuality" preserveAspectRatio="none" xlink:href="../src/assets/images/shocked.jpeg"/>
+    <image id="reflectionImage" width="147.284" height="147.284" x=".409" y="828.852" clip-path="url(#a)" image-rendering="optimizeQuality" preserveAspectRatio="none" xlink:href="../src/assets/images/shocked.jpeg"/>
     <path fill="#333" d="M57.462 857.893c-13.529.224-33.267.946-38.194 16.43-4.393 20.448-4.185 43.932 7.692 61.187 9.919 14.41 31.334 11.582 47.282 11.023 25.345-.89 47.122-20.63 53.855-44.776 2.587-10.398 5.59-18.679.933-25.992-7.974-12.526-26.954-15.795-41.01-17.39-10.082-.41-20.378-.594-30.558-.482z" opacity=".25"/>
     <path fill="#b3b3b3" d="M18.25 863.026a5.47 2.27 0 01-5.442 2.269 5.47 2.27 0 01-5.498-2.246 5.47 2.27 0 015.386-2.292 5.47 2.27 0 015.553 2.222"/>
     <path fill="#fff" d="M78.291 858.063l-25.729 88.918c7.844.213 15.657-.06 22.656-.507l24.924-86.124c-7.44-1.829-14.794-2.106-21.85-2.287zm-15.633-.19c-1.734.002-3.469 0-5.197.018-1.45.024-2.997.067-4.564.12l-23.685 80.266c2.318 2.45 5.056 4.254 8.08 5.563z" opacity=".35"/>
