@@ -1,16 +1,17 @@
 {
-  "name": "og-generator",
-  "description": "Generate an OG image from SVG and Markdown front matter",
+  "name": "@jh3y/og-generator",
+  "description": "Generate an OG image from SVG with Puppeteer",
   "version": "0.0.1",
-  "author": "jh3y @jh3y",
+  "author": "jh3y <jh3y@users.noreply.github.com>",
   "bin": {
     "og-generator": "./bin/run"
   },
-  "bugs": "https://github.com/jh3y/personal-site/issues",
+  "bugs": "https://github.com/jh3y/og-generator/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "@oclif/plugin-help": "^3"
+    "@oclif/plugin-help": "^3",
+    "sharp": "^0.27.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
@@ -22,9 +23,10 @@
   },
   "files": [
     "/bin",
-    "/src"
+    "/src",
+    "/templates"
   ],
-  "homepage": "https://github.com/jh3y/personal-site",
+  "homepage": "https://github.com/jh3y/og-generator",
   "keywords": [
     "oclif"
   ],
@@ -33,7 +35,7 @@
   "oclif": {
     "bin": "og-generator"
   },
-  "repository": "jh3y/personal-site",
+  "repository": "jh3y/og-generator",
   "scripts": {
     "prepack": "oclif-dev readme",
     "test": "echo NO TESTS",
