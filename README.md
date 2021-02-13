@@ -1,16 +1,17 @@
-og-generator
+@jh3y/og-generator
 ============
 
 Generate asset thumbnails for various platforms with SVG && Puppeteer.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/og-generator.svg)](https://npmjs.org/package/og-generator)
-[![Downloads/week](https://img.shields.io/npm/dw/og-generator.svg)](https://npmjs.org/package/og-generator)
-[![License](https://img.shields.io/npm/l/og-generator.svg)](https://github.com/jh3y/personal-site/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@jh3y/og-generator.svg)](https://npmjs.org/package/@jh3y/og-generator)
+[![Downloads/week](https://img.shields.io/npm/dw/@jh3y/og-generator.svg)](https://npmjs.org/package/og-generator)
+[![License](https://img.shields.io/npm/l/@jh3y/og-generator.svg)](https://github.com/jh3y/personal-site/blob/master/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+- [@jh3y/og-generator](#jh3yog-generator)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
