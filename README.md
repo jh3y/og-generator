@@ -9,18 +9,17 @@ Generate asset thumbnails for various platforms with SVG && Puppeteer.
 [![License](https://img.shields.io/npm/l/og-generator.svg)](https://github.com/jh3y/personal-site/blob/master/package.json)
 
 <!-- toc -->
-- [og-generator](#og-generator)
-- [Usage](#usage)
-- [Commands](#commands)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g og-generator
+$ npm install -g @jh3y/og-generator
 $ og-generator COMMAND
 running command...
 $ og-generator (-v|--version|version)
-og-generator/0.0.0 darwin-x64 node-v12.6.0
+@jh3y/og-generator/0.0.2 darwin-x64 node-v12.6.0
 $ og-generator --help [COMMAND]
 USAGE
   $ og-generator COMMAND
