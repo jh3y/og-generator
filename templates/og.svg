@@ -15,9 +15,8 @@
       }
 
       .og__title {
-        font-size: 18px;
+        font-size: 24px;
         font-weight: bold;
-        margin: 0;
         line-height: 1.1;
       }
 
@@ -27,19 +26,56 @@
         font-weight: 200;
         margin: 5px 0;
       }
+
+      .og__footer {
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+        line-height: 1;
+        font-weight: 200;
+        margin: 5px 0;
+        color: hsl(0, 0%, 90%);
+      }
+
+      .og__footer > * + * {
+        margin-left: 8px;
+      }
+
+      .og__social {
+        display: flex;
+        align-items: center;
+      }
+
+      .og__icon {
+        fill: hsl(0, 0%, 90%);
+        height: 14px;
+        width: 14px;
+        margin-right: 2px;
+      }
     </style>
   </defs>
   <path fill="#343434" d="M0 0h338.667v177.006H0z"/>
   <path fill="orange" d="M0 0h338.667v7.938H0zm0 169.068h338.667v7.938H0z" data-hsl="true"/>
   <foreignObject width="240" height="153" x="10" y="12">
-    <div xmlns="http://www.w3.org/1999/xhtml" class="og__details">
-      <h1 data-og-title="true" class="og__title">
-        CSS Cyberpunk 2077 Buttons - Taking your CSS to Night City
-      </h1>
-      <h2 class="og__tagline">
-        jhey.dev
-      </h2>
-    </div>
+    <xhtml:div class="og__details">
+      <xhtml:h1 data-og-title="true" class="og__title">
+        Some Amazing Article
+      </xhtml:h1>
+      <xhtml:div class="og__footer">
+        <xhtml:span class="og__social">
+          <svg class="og__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>
+          <xhtml:span>jhey.dev</xhtml:span>
+        </xhtml:span>
+        <xhtml:span class="og__social">
+          <svg class="og__icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Twitter icon</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          <xhtml:span>jh3yy</xhtml:span>
+        </xhtml:span>
+        <xhtml:span class="og__social">
+          <svg class="og__icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Twitch icon</title><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></svg>
+          <xhtml:span>jh3yy</xhtml:span>
+        </xhtml:span>
+      </xhtml:div>
+    </xhtml:div>
   </foreignObject>
   <g transform="translate(260.924 -398.499) scale(.53892)">
     <path fill="#803300" d="M141.776 787.416c-71.486 0-122 33.123-122 115.264 0 82.141 49.766 142.533 122.62 142.533.623 0 1.239-.015 1.859-.023V787.434c-.825-.009-1.65-.018-2.479-.018z"/>

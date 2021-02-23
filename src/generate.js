@@ -3,8 +3,10 @@ const fs = require("fs");
 const os = require("os");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+const pino = require("pino");
 const puppeteer = require("puppeteer");
 
+const LOG = pino({ prettyPrint: true });
 const TYPES = ["OG", "TWITTER_BANNER", "YOUTUBE_THUMBNAIL"];
 
 /**
@@ -26,7 +28,7 @@ const generateOgImage = async (
   override = false
 ) => {
   // Check if the asset already exists. If it does, don't make a new one.
-  if (fs.existsSync(output) && !override) return;
+  if (fs.existsSync(output) && !override);
   const TMP_IMAGE_PATH = `${os.tmpdir()}/og-generator-output.png`;
   const TMP_SVG_PATH = `${os.tmpdir()}/og-generator-output.svg`;
   /**
@@ -122,9 +124,9 @@ const generateOgImage = async (
   await page.close();
   await browser.close();
   // Remove the temporary files
-  await fs.promises.unlink(TMP_IMAGE_PATH);
-  await fs.promises.unlink(TMP_SVG_PATH);
-  console.info(`OG Image generated at ${output}`);
+  if (fs.existsSync(TMP_IMAGE_PATH)) await fs.promises.unlink(TMP_IMAGE_PATH);
+  if (fs.existsSync(TMP_SVG_PATH)) await fs.promises.unlink(TMP_SVG_PATH);
+  LOG.info(`OG Image generated at ${output}`);
 };
 
 module.exports = generateOgImage;

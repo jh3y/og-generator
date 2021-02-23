@@ -12,6 +12,8 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "jsdom": "^16.4.0",
+    "pino": "^6.11.1",
+    "pino-pretty": "^4.5.0",
     "puppeteer": "^5.5.0",
     "sharp": "^0.27.1"
   },

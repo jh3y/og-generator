@@ -1,4 +1,6 @@
 const { Command, flags } = require("@oclif/command");
+const pino = require("pino");
+const LOG = pino({ prettyPrint: true });
 const generateOgImage = require("./generate.js");
 
 // Used for generating single OG Images with specific titles, images, and colors
@@ -8,7 +10,19 @@ class OgGeneratorCommand extends Command {
       flags: { hue, image, title, template, type, output, override },
     } = this.parse(OgGeneratorCommand);
     // Pass through to an actual module
-    await generateOgImage(title, template, type, image, hue, output, override);
+    try {
+      await generateOgImage(
+        title,
+        template,
+        type,
+        image,
+        hue,
+        output,
+        override
+      );
+    } catch (err) {
+      LOG.error(err);
+    }
   }
 }
 
