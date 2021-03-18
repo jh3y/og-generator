@@ -7,7 +7,7 @@ const generateOgImage = require("./generate.js");
 class OgGeneratorCommand extends Command {
   async run() {
     const {
-      flags: { hue, image, title, template, type, output, override },
+      flags: { accent, image, title, template, type, output, override },
     } = this.parse(OgGeneratorCommand);
     // Pass through to an actual module
     try {
@@ -16,7 +16,7 @@ class OgGeneratorCommand extends Command {
         template,
         type,
         image,
-        hue,
+        accent,
         output,
         override
       );
@@ -36,7 +36,7 @@ OgGeneratorCommand.flags = {
   version: flags.version({ char: "v" }),
   // add --help flag to show CLI version
   help: flags.help({ char: "h" }),
-  hue: flags.string({ char: "c", description: "color hue for banner" }),
+  accent: flags.string({ char: "a", description: "color for accenting" }),
   image: flags.string({ char: "i", description: "image to use" }),
   title: flags.string({ char: "t", description: "title for card" }),
   template: flags.string({ description: "template for image" }),

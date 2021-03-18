@@ -7,7 +7,7 @@ const pino = require("pino");
 const puppeteer = require("puppeteer");
 
 const LOG = pino({ prettyPrint: true });
-const TYPES = ["OG", "TWITTER_BANNER", "YOUTUBE_THUMBNAIL"];
+const TYPES = ["OG", "TWITTER_BANNER", "YOUTUBE_THUMBNAIL", "YOUTUBE_FRAME"];
 
 /**
  * Generate an asset image in png form using the provided template/type
@@ -15,7 +15,7 @@ const TYPES = ["OG", "TWITTER_BANNER", "YOUTUBE_THUMBNAIL"];
  * @param {string} template - Path to template file to be used.
  * @param {string} type - If no template is provided, provide a type to be used with "Out of the box" ones.
  * @param {string} image - Path to image being used for specs reflection.
- * @param {number} hue - Hue for border color on asset.
+ * @param {number|string} accent - Accent for asset. Can either be a single hue or a defined color.
  * @param {boolean} override - Override existing asset.
  */
 const generateOgImage = async (
@@ -23,7 +23,7 @@ const generateOgImage = async (
   template,
   type = "OG",
   image,
-  hue = 10,
+  accent = 10,
   output = "./og-asset.png",
   override = false
 ) => {
@@ -69,7 +69,7 @@ const generateOgImage = async (
   } = new JSDOM(`<html><head></head><body>${TEMPLATE_FILE}</body></html>`);
 
   // Generate the color to be used in the border/cap details.
-  const COLOR = `hsl(${hue}, 80%, 50%)`;
+  const COLOR = isNaN(parseInt(accent, 10)) ? accent : `hsl(${accent}, 80%, 50%)`;
   /**
    * Grab the width and height of the template.
    * This is based on the SVG having width/height attributes.
@@ -102,7 +102,7 @@ const generateOgImage = async (
   /**
    * Set the OG card title. Again, this is based on a certain class/attribute.
    */
-  document.querySelector("[data-og-title]").textContent = title;
+  document.querySelector("[data-og-title]").innerHTML = title;
   // Write this SVG to the tmp folder
   fs.writeFileSync(TMP_SVG_PATH, SVG.outerHTML, "utf-8");
   /**

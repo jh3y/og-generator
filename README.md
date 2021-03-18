@@ -20,7 +20,7 @@ $ npm install -g @jh3y/og-generator
 $ og-generator COMMAND
 running command...
 $ og-generator (-v|--version|version)
-@jh3y/og-generator/0.0.3 darwin-x64 node-v12.6.0
+@jh3y/og-generator/0.0.4 darwin-x64 node-v12.6.0
 $ og-generator --help [COMMAND]
 USAGE
   $ og-generator COMMAND
