@@ -1,7 +1,7 @@
 {
   "name": "@jh3y/og-generator",
   "description": "Generate an OG image from SVG with Puppeteer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "jh3y <jh3y@users.noreply.github.com>",
   "bin": {
     "og-generator": "./bin/run"

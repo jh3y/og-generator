@@ -28,7 +28,7 @@ const generateOgImage = async (
   override = false
 ) => {
   // Check if the asset already exists. If it does, don't make a new one.
-  if (fs.existsSync(output) && !override);
+  if (fs.existsSync(output) && !override) return false;
   const TMP_IMAGE_PATH = `${os.tmpdir()}/og-generator-output.png`;
   const TMP_SVG_PATH = `${os.tmpdir()}/og-generator-output.svg`;
   /**
@@ -69,7 +69,9 @@ const generateOgImage = async (
   } = new JSDOM(`<html><head></head><body>${TEMPLATE_FILE}</body></html>`);
 
   // Generate the color to be used in the border/cap details.
-  const COLOR = isNaN(parseInt(accent, 10)) ? accent : `hsl(${accent}, 80%, 50%)`;
+  const COLOR = isNaN(parseInt(accent, 10))
+    ? accent
+    : `hsl(${accent}, 80%, 50%)`;
   /**
    * Grab the width and height of the template.
    * This is based on the SVG having width/height attributes.
